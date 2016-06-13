@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="images/robot.ico">
+
+    <title>Inicio de Sesión.</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Estilo de inicio de sesion -->
+    <link href="css/signin.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="js/ie-emulation-modes-warning.js"></script>
+
+     </head>
+
+  <body>
+
+    <div class="container">
+
+      <form class="form-signin" action="ingreso.php">
+        <a  href="login.html"> <img src="images/inicio_robot.jpg"  class="img-responsive" width="330" height="0"> </a></br></br></br>
+        <label for="inputUser" class="sr-only">Usuario</label>
+        <input type="text" id="usuario" class="form-control" placeholder="Usuario" required autofocus></br>
+        <label for="inputPassword" class="sr-only">Contraseña</label>
+        <input type="password" id="pass" class="form-control" placeholder="Contraseña" required>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="remember-me"> Recordar mi contraseña
+          </label>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit" id="btn_login">Iniciar Sesión</button>
+      </form>
+
+    </div> <!-- /container -->
+
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/ie10-viewport-bug-workaround.js"></script>
+   <!--<script> 
+            $(document).on('click', '#btn_login', function(e){
+              e.preventDefault()
+              //alert()
+
+            $.ajax({
+            url:'login.php',
+            type:'post',
+            data: {"user": $('#usuario').val(), "pass": $('#pass').val()}, //variable en php y id de campo de texto
+            dataType:'json',
+            success: function(data){
+              if(data == 1){
+                window.location = "cositec_admin.php"  // direccion hacia donde se dirige la pagina
+              }
+              else{
+                alert("Usuario y contraseña incorrectos")
+                $('#pass').val("")
+              }
+
+            }
+          }); //fin ajax 
+
+        }) 
+      </script>-->
+  </body>
+</html>

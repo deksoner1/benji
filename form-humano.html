@@ -1,7 +1,7 @@
 <script type="text/javascript">
 //function redireccionar(){
-  //window.location="form-humano.html";
-//} 
+//window.location="form-humano.html";
+//}
 //setTimeout ("redireccionar()"); //tiempo expresado en milisegundos
 window.alert('Por seguridad, necesitara responder una serie de preguntas.!!!')
 </script>
@@ -9,97 +9,96 @@ window.alert('Por seguridad, necesitara responder una serie de preguntas.!!!')
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width; initial-scale=1.0"> 
-<link rel="icon" href="images/robot.ico">
-<title>Formulario para comprobar que eres humano!</title>
-    <!-- Estilos CSS vinculados -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/estilos.css" rel="stylesheet">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width; initial-scale=1.0">
+  <link rel="icon" href="images/robot.ico">
+  <title>Formulario para comprobar que eres humano!</title>
+  <!-- Estilos CSS vinculados -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/estilos.css" rel="stylesheet">
 </head>
 
 <body>
   <div class="container">
-	<div class="page-header">
-       <h1>Comprueba que eres humano. <small>Responde unas breves preguntas.</small></h1>
+    <div class="page-header">
+      <h1>Comprueba que eres humano. <small>Responde unas breves preguntas.</small></h1>
     </div>
 
 
     <form class="form-horizontal">
-        <div class="form-group">
-            <label  class="control-label col-xs-4">Menciona una verdura:</label>
-            <div class="col-xs-8">
-                <input type="text" class="form-control" id="verduras" name="verduras" placeholder="Ej.zanahoria"></br>
-            </div>
-
-            <label  class="control-label col-xs-4">Menciona un sentido del humano:</label>
-            <div class="col-xs-8">
-                <input type="text" class="form-control" id="sentidos" name="sentidos" placeholder="Ej. La vista"></br>
-            </div>
-
-            <label  class="control-label col-xs-4">Sentimiento al recibir un golpe:</label>
-            <div class="col-xs-8">
-                <input type="text" class="form-control" id="dolor" name="dolor" placeholder="Dolor, alegria o tristeza"></br>
-            </div>
-
-            <label  class="control-label col-xs-4">Liquido que quita la sed e hidrata:</label>
-            <div class="col-xs-8">
-                <input type="text" class="form-control" id="liquido" name="liquido" placeholder="Agua, Refresco o cerveza"></br>
-            </div>
-
-            <label  class="control-label col-xs-4">Vehiculo mas usado:</label>
-            <div class="col-xs-8">
-                <input type="text" class="form-control" id="vehiculo" name="vehiculo" placeholder="Pista: Tiene cajuela."></br>
-            </div>
-
-             <div class="form-group">
-            <div class="col-xs-offset-4 col-xs-8">
-                <button type="submit" class="btn btn-primary" id="enviar">Enviar Formulario</button>
-            </div>
+      <div class="form-group">
+        <label  class="control-label col-xs-4">Menciona una verdura:</label>
+        <div class="col-xs-8">
+          <input type="text" class="form-control" id="verduras" name="verduras" placeholder="Ej.zanahoria"></br>
         </div>
-    </form>
-    
 
-</div>
+        <label  class="control-label col-xs-4">Menciona un sentido del humano:</label>
+        <div class="col-xs-8">
+          <input type="text" class="form-control" id="sentidos" name="sentidos" placeholder="Ej. La vista"></br>
+        </div>
+
+        <label  class="control-label col-xs-4">Sentimiento al recibir un golpe:</label>
+        <div class="col-xs-8">
+          <input type="text" class="form-control" id="dolor" name="dolor" placeholder="Dolor, alegria o tristeza"></br>
+        </div>
+
+        <label  class="control-label col-xs-4">Liquido que quita la sed e hidrata:</label>
+        <div class="col-xs-8">
+          <input type="text" class="form-control" id="liquido" name="liquido" placeholder="Agua, Refresco o cerveza"></br>
+        </div>
+
+        <label  class="control-label col-xs-4">Vehiculo mas usado:</label>
+        <div class="col-xs-8">
+          <input type="text" class="form-control" id="vehiculo" name="vehiculo" placeholder="Pista: Tiene cajuela."></br>
+        </div>
+
+        <div class="form-group">
+          <div class="col-xs-offset-4 col-xs-8">
+            <button type="submit" class="btn btn-primary" id="enviar">Enviar Formulario</button>
+          </div>
+        </div>
+      </form>
 
 
-<!-- Js vinculados -->
+    </div>
+
+
+    <!-- Js vinculados -->
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script src="js/responsive.js"></script>
     <script src="js/bootstrap.min.js"></script>
 
     <!--Script para comprobar datos en la tabla de la bdd -->
-    <script> 
-            $(document).on('click', '#enviar', function(e){
-              e.preventDefault()
-              //alert()
+    <script>
+    $(document).on('click', '#enviar', function(e){
+      e.preventDefault()
+      //alert()
 
-            $.ajax({
-            url:'form-bd.php',  
-            type:'post',
-            data: {"verduras": $('#verduras').val(), "sentidos": $('#sentidos').val(), "dolor": $('#dolor').val(), "liquido": $('#liquido').val(), "vehiculo": $("#vehiculo").val()}, //variable en php y id de campo de texto
-            //data: {"verduras": $('#verduras').val(),"vehiculo": $("#vehiculo").val()}, //variable en php y id de campo de 
-            
-            dataType:'json',
-            success: function(data){
-              if(data == 1){
-                window.location = "login.html"  // direccion hacia donde se dirige la pagina
-              }
-              else{
-                alert("Los datos no coinciden, intente mas tarde!")
-                $('#verduras').val(""),
-                $('#sentidos').val(""),
-                $('#dolor').val(""),
-                $('#liquido').val(""),
-                $('#vehiculo').val("")
-              }
+      $.ajax({
+        url:'form-bd.php',
+        type:'post',
+        data: {"verduras": $('#verduras').val(), "sentidos": $('#sentidos').val(), "dolor": $('#dolor').val(), "liquido": $('#liquido').val(), "vehiculo": $("#vehiculo").val()}, //variable en php y id de campo de texto
+        //data: {"verduras": $('#verduras').val(),"vehiculo": $("#vehiculo").val()}, //variable en php y id de campo de
 
-            }
-          }); //fin ajax 
+        dataType:'json',
+        success: function(data){
+          if(data == 1){
+            window.location = "index.php"  // direccion hacia donde se dirige la pagina
+          }
+          else{
+            alert("Los datos no coinciden, intente mas tarde!")
+            $('#verduras').val(""),
+            $('#sentidos').val(""),
+            $('#dolor').val(""),
+            $('#liquido').val(""),
+            $('#vehiculo').val("")
+          }
+        }
+      }); //fin ajax
+      
+    })
+    </script>
 
-        }) 
-      </script>
 
-
-</body>
-</html>
+  </body>
+  </html>

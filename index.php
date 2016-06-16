@@ -1,4 +1,3 @@
-<?php include 'find-ip.php' ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -48,7 +47,7 @@
                 <li><a href="#About">Acerca de...</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                <li><a href="login.html"><?php echo GetUserIP();?>Iniciar Sesión</a></li>
+                <li><a href="login.html">Iniciar Sesión</a></li>
                <!-- <li><a href="logout.php" id="Btnlogout">Cerrar Sesión</a></li> -->
 
               </ul>

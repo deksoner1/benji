@@ -1,6 +1,6 @@
 <?php
 include 'find-ip.php';
-$mysqli = new mysqli('localhost', 'root', '123456', 'Captcha'); //datos de bdd
+$mysqli = new mysqli('localhost', 'root', '', 'Captcha'); //datos de bdd
 $verdura = $_POST["verduras"];
 $sentidos = $_POST["sentidos"];
 $dolor = $_POST["dolor"];

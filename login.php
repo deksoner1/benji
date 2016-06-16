@@ -1,8 +1,6 @@
 <?php
 include 'find-ip.php';
-$mysqli = new mysqli('localhost', 'root', '123456'); //datos de la bdd
-mysqli_select_db($mysqli,'Captcha');
-$resultado = mysqli_query($mysqli,$consult);
+$mysqli = new mysqli('localhost', 'root', '', 'Captcha'); //datos de la bdd
 $usuario = $_POST["user"]; //llaves js
 $contra = $_POST["pass"];
 

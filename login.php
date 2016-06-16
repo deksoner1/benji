@@ -31,11 +31,7 @@ if(count($vec)>0){
   }else {
     echo json_encode(2);
   }
-<<<<<<< HEAD
-}else{
-=======
 } else{
->>>>>>> 4ef0f3a7d46d201939909d35c7713067937160ec
     echo json_encode(0); //si no encuentra nada, no hay coincidencia y se manda un 0
   }
 

@@ -1,6 +1,6 @@
 <?php
 include 'find-ip.php';
-$mysqli = new mysqli('localhost', 'root', '123456', 'Captcha'); //datos de la bdd
+$mysqli = mysqli_connect('localhost', 'root', '123456', 'Captcha'); //datos de la bdd
 $usuario = $_POST["user"]; //llaves js
 $contra = $_POST["pass"];
 
@@ -19,9 +19,11 @@ if($result = $mysqli->query($consult)){
 if(count($vec)>0){
   session_start();
   $id = $vec[0]["id"];
-
-  //$ipinsert = "INSERT INTO 'login'(user,password,ip,id) VALUES ('','','$ip','')";
-  mysqli_query($mysqli, "INSERT INTO login(ip) VALUES('$ip') WHERE user='$usuario'");
+  //$ipinsert = "INSERT INTO 'Captcha'.'login'('ip') VALUES($ip)";
+  //$ipinsert = "INSERT INTO 'login'(ip) VALUES ('$ip')";
+  //mysqli_query$mysqli, "INSERT INTO login(ip) VALUES('$ip')";
+  //mysqli_query($mysqli, "INSERT INTO login(ip) VALUES('$ip')");
+  //mysqli_query($mysqli, "UPDATE login SET ip='$ip' WHERE id='$id'");
   $ipconsult = "SELECT * FROM login WHERE id='$id' AND ip='$ip'";
   $ipvec = array();
   if($result = $mysqli->query($ipconsult)){

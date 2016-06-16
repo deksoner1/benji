@@ -1,6 +1,6 @@
 <?php
 include 'find-ip.php';
-$mysqli = new mysqli('localhost', 'root', '', 'Captcha'); //datos de bdd
+$mysqli = new mysqli('localhost', 'root', '123456', 'Captcha'); //datos de bdd
 $verdura = $_POST["verduras"];
 $sentidos = $_POST["sentidos"];
 $dolor = $_POST["dolor"];
@@ -9,7 +9,7 @@ $vehiculo = $_POST["vehiculo"];
 
 
 $consult = "SELECT * FROM Preguntas WHERE verduras='$verdura' AND sentidos='$sentidos' AND dolor='$dolor' AND liquido='$liquido' AND vehiculo='$vehiculo' "; //consulta sql
-
+$ip = GetUserIp();
 //$consult = "SELECT * FROM Preguntas WHERE verduras='$verdura' AND vehiculo='$vehiculo' "; //consulta sql
 
 $vec = array();
@@ -19,6 +19,7 @@ if($result = $mysqli->query($consult)){
 // echo var_dump($vec);
 //echo "hola: ".count($vec);
 //exit;
+
 if(count($vec)>0){
 	session_start();
 	$_SESSION['verduras'] = $verdura;
@@ -26,6 +27,14 @@ if(count($vec)>0){
 	$_SESSION['dolor'] = $dolor;
 	$_SESSION['liquido'] = $liquido;
 	$_SESSION['vehiculo'] = $vehiculo;
+
+	$idconsult = mysql_query("SELECT * FROM login WHERE user='$usuario' AND password='$contra'");
+
+
+
+	$ipinsert = "INSERT INTO `UserIP`(`ip`) VALUES ('$ip')";
+echo $idconsult;
+die;
 	echo json_encode(1); //si por lo menos hay un registro , se regresa un 1 a js
 }
 else{

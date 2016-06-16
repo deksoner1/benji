@@ -16,6 +16,4 @@
             return getenv('HTTP_CLIENT_IP');
         return getenv('REMOTE_ADDR');
     }
-    $a=GetUserIP();
-    echo $a;
 ?>

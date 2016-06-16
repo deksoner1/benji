@@ -31,7 +31,7 @@
 
     <div class="container">
 
-      <form class="form-signin" action="ingreso.php">
+      <form class="form-signin" action="login.php">
         <a  href="login.html"> <img src="images/inicio_robot.jpg"  class="img-responsive" width="330" height="0"> </a></br></br></br>
         <label for="inputUser" class="sr-only">Usuario</label>
         <input type="text" id="usuario" class="form-control" placeholder="Usuario" required autofocus></br>
@@ -51,7 +51,11 @@
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="js/jquery.min.js"></script>
     <script src="js/ie10-viewport-bug-workaround.js"></script>
+<<<<<<< HEAD
     <script> 
+=======
+   <<script>
+>>>>>>> master
             $(document).on('click', '#btn_login', function(e){
               e.preventDefault()
               //alert()
@@ -63,7 +67,11 @@
             dataType:'json',
             success: function(data){
               if(data == 1){
+<<<<<<< HEAD
                 window.location = "adicional.php"  // direccion hacia donde se dirige la pagina
+=======
+                window.location = "index.php"  // direccion hacia donde se dirige la pagina
+>>>>>>> master
               }
               else{
                 alert("Usuario y contraseña incorrectos")
@@ -71,9 +79,13 @@
               }
 
             }
-          }); //fin ajax 
+          }); //fin ajax
 
+<<<<<<< HEAD
         }) 
+=======
+        })
+>>>>>>> master
       </script>
   </body>
 </html>

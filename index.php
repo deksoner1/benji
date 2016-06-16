@@ -1,3 +1,4 @@
+<?php include 'find-ip.php' ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -26,7 +27,7 @@
 <!-- NAVBAR
 ================================================== -->
   <body>
-    
+
 
         <nav class="navbar navbar-default navbar-fixed-top navbar-static-top">
           <div class="container">
@@ -47,14 +48,14 @@
                 <li><a href="#About">Acerca de...</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                <li><a href="form-humano.html">Iniciar Sesión</a></li>
+                <li><a href="login.html"><?php echo GetUserIP();?>Iniciar Sesión</a></li>
                <!-- <li><a href="logout.php" id="Btnlogout">Cerrar Sesión</a></li> -->
-                
+
               </ul>
             </div>
           </div>
         </nav></br>
-        
+
 
 
     <!-- Carousel
@@ -68,30 +69,30 @@
         <li data-target="#myCarousel" data-slide-to="2" class=""></li>
         <li data-target="#myCarousel" data-slide-to="3" class=""></li>
       </ol>
-      <div class="carousel-inner">         
+      <div class="carousel-inner">
         <div class="item active" id="IA1">
           <img src="images/IA1.jpg" >
           <div class="container">
-            <div class="carousel-caption">    
-               
+            <div class="carousel-caption">
+
             </div>
           </div>
         </div>
         <div class="item" id="IA2">
           <img src="images/IA2.png" >
           <div class="container">
-            <div class="carousel-caption">       
+            <div class="carousel-caption">
             </div>
           </div>
         </div>
         <div class="item" id="IA3">
           <img src="images/IA3.jpg" >
           <div class="container">
-        
+
           </div>
         </div>
         <div class="item" id="IA4">
-          <img src="images/IA4.jpg" >         
+          <img src="images/IA4.jpg" >
           </div>
         </div>
       </div>
@@ -100,7 +101,7 @@
     </div></br></br>
 
 
-  
+
 
       <!-- FOOTER -->
       <footer>

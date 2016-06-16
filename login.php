@@ -3,7 +3,12 @@ $mysqli = new mysqli('localhost', 'root', '', 'Captcha'); //datos de la bdd
 $usuario = $_POST["user"]; //llaves js
 $contra = $_POST["pass"];
 
+<<<<<<< HEAD
 $consult = "SELECT * FROM Usuarios WHERE user='$usuario' AND pass='$contra'"; //consulta sql
+=======
+$consult = "SELECT * FROM Login WHERE user='$usuario' AND password='$contra'";
+echo $consult; //consulta sql
+>>>>>>> master
 //$consult = "SELECT * from empleados WHERE user = 'Agustin'";
 
 $vec = array();

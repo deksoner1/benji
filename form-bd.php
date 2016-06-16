@@ -2,8 +2,12 @@
 <<<<<<< HEAD
 =======
 include 'find-ip.php';
+<<<<<<< Updated upstream
 >>>>>>> 4ef0f3a7d46d201939909d35c7713067937160ec
 $mysqli = new mysqli('localhost', 'root', '123456', 'Captcha'); //datos de bdd
+=======
+$mysqli = new mysqli('localhost', 'root', '', 'Captcha'); //datos de bdd
+>>>>>>> Stashed changes
 $verdura = $_POST["verduras"];
 $sentidos = $_POST["sentidos"];
 $dolor = $_POST["dolor"];

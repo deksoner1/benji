@@ -51,7 +51,7 @@
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="js/jquery.min.js"></script>
     <script src="js/ie10-viewport-bug-workaround.js"></script>
-   <!--<script> 
+    <script> 
             $(document).on('click', '#btn_login', function(e){
               e.preventDefault()
               //alert()
@@ -63,17 +63,17 @@
             dataType:'json',
             success: function(data){
               if(data == 1){
-                window.location = "cositec_admin.php"  // direccion hacia donde se dirige la pagina
+                window.location = "adicional.php"  // direccion hacia donde se dirige la pagina
               }
               else{
                 alert("Usuario y contraseña incorrectos")
-                $('#pass').val("")
+                $('#pass').val("") //limpia el cuadro de texto de la contraseña
               }
 
             }
           }); //fin ajax 
 
         }) 
-      </script>-->
+      </script>
   </body>
 </html>

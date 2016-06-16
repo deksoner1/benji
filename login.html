@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -51,7 +50,11 @@
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="js/jquery.min.js"></script>
     <script src="js/ie10-viewport-bug-workaround.js"></script>
+<<<<<<< HEAD
+    <script> 
+=======
    <<script>
+>>>>>>> master
             $(document).on('click', '#btn_login', function(e){
               e.preventDefault()
               //alert()
@@ -63,17 +66,28 @@
             dataType:'json',
             success: function(data){
               if(data == 1){
+<<<<<<< HEAD
+                window.location = "adicional.php"  // direccion hacia donde se dirige la pagina
+=======
                 window.location = "index.php"  // direccion hacia donde se dirige la pagina
+>>>>>>> master
+              }
+              else if (data == 2) {
+                window.location = "form-humano.html"
               }
               else{
                 alert("Usuario y contraseña incorrectos")
-                $('#pass').val("")
+                $('#pass').val("") //limpia el cuadro de texto de la contraseña
               }
 
             }
           }); //fin ajax
 
+<<<<<<< HEAD
+        }) 
+=======
         })
+>>>>>>> master
       </script>
   </body>
 </html>

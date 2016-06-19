@@ -1,11 +1,11 @@
 <?php
 include 'find-ip.php';
-$mysqli = new mysqli('localhost', 'root', '', 'Captcha'); //datos de la bdd
+$mysqli = new mysqli('localhost', 'root', '123456', 'Captcha'); //datos de la bdd
 $usuario = $_POST["user"]; //llaves js
 $contra = $_POST["pass"];
 
 $consult = "SELECT * FROM login WHERE user='$usuario' AND password='$contra'";
-$ip = GetUserIP();
+$ip = GetUserIp();
 //$consult = "SELECT * from empleados WHERE user = 'Agustin'";
 
 $vec = array();
@@ -20,7 +20,9 @@ if(count($vec)>0){
   session_start();
   $id = $vec[0]["id"];
 
-  $ipconsult = "SELECT * FROM UserIP WHERE id='$id' AND ip='$ip'";
+  //$ipinsert = "INSERT INTO 'login'(user,password,ip,id) VALUES ('','','$ip','')";
+  mysqli_query($mysqli, "INSERT INTO login(ip) VALUES('$ip') WHERE user='$usuario'");
+  $ipconsult = "SELECT * FROM login WHERE id='$id' AND ip='$ip'";
   $ipvec = array();
   if($result = $mysqli->query($ipconsult)){
     while($fila = $result->fetch_assoc()){ $ipvec[] = $fila; }

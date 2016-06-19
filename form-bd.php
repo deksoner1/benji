@@ -1,12 +1,12 @@
 <?php
 include 'find-ip.php';
-$mysqli = new mysqli('localhost', 'root', '123456', 'Captcha'); //datos de bdd
+$mysqli = mysqli_connect('localhost', 'root', '123456', 'Captcha'); //datos de bdd
 $verdura = $_POST["verduras"];
 $sentidos = $_POST["sentidos"];
 $dolor = $_POST["dolor"];
 $liquido = $_POST["liquido"];
 $vehiculo = $_POST["vehiculo"];
-
+$usuario = $_POST["user"];
 
 $consult = "SELECT * FROM Preguntas WHERE verduras='$verdura' AND sentidos='$sentidos' AND dolor='$dolor' AND liquido='$liquido' AND vehiculo='$vehiculo' "; //consulta sql
 $ip = GetUserIp();
@@ -27,14 +27,17 @@ if(count($vec)>0){
 	$_SESSION['dolor'] = $dolor;
 	$_SESSION['liquido'] = $liquido;
 	$_SESSION['vehiculo'] = $vehiculo;
+	$idupdate = mysqli_query($mysqli,"UPDATE login SET ip='$ip' WHERE id='$id'");
+	$idconsult = "SELECT * FROM login WHERE user='$usuario' AND password='$contra'";
 
-	$idconsult = mysql_query("SELECT * FROM login WHERE user='$usuario' AND password='$contra'");
+	$idvec = array();
+	if($result = $mysqli->query($idconsult)){
+		while($fila = $result->fetch_assoc()){ $idvec[] = $fila; }
+	}  //convertir en array asociativo para poder leer todo lo que se trajo de la bdd
+	$id = $idvec[0]["id"];
 
 
-
-	$ipinsert = "INSERT INTO `UserIP`(`ip`) VALUES ('$ip')";
-echo $idconsult;
-die;
+	//$idupdate = "UPDATE login SET ip='$ip' WHERE id='$id'";
 	echo json_encode(1); //si por lo menos hay un registro , se regresa un 1 a js
 }
 else{
